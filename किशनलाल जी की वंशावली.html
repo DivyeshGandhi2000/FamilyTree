@@ -1,0 +1,1117 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset=utf8>
+  <meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <style>
+    :root {
+      color-scheme: light;
+      box-sizing: border-box;
+      padding-top: env(safe-area-inset-top, 0px);
+      padding-bottom: env(safe-area-inset-bottom, 0px)
+    }
+
+    html {
+      scroll-padding-top: env(safe-area-inset-top, 0px)
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font: 14px -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #fff;
+      color: #000
+    }
+
+    img {
+      max-width: 100%
+    }
+
+    [hidden]:not([hidden=until-found i]) {
+      display: none !important
+    }
+  </style>
+</head>
+
+<body>
+  <title>किशनलाल जी की वंशावली</title>
+  <meta name="claude:viewport-fit-sides" content="cover">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Tiro+Devanagari+Hindi&display=swap">
+  <style>
+    /* Layout: royal indigo-and-gold banner, then a framed panel with a horizontal tree (patriarch at left, one column per generation),
+   plus an indented list view for phones. Node colour = generation, echoing the highlighter colours of the handwritten sheet. */
+    :root {
+      --bg: #E6ECF5;
+      --bg2: #F3F6FB;
+      --panel: #F8FAFE;
+      --ink: #13213C;
+      --ink2: #4B5B79;
+      --indigo: #1B3A7A;
+      --frame: #1B3A7A;
+      --hero1: #21459A;
+      --hero2: #10275C;
+      --hero-glow: rgba(240, 199, 90, .24);
+      --gold: #C99A21;
+      --gold-text: #7A5200;
+      --line: #8C9DBA;
+      --line2: #C9D4E5;
+      --dot: rgba(27, 58, 122, .11);
+      --acc-bg: #1B3A7A;
+      --acc-fg: #FFFFFF;
+      --root-a: #2B52AE;
+      --root-b: #16306F;
+      --nl: 94%;
+      --nc: .055;
+      --bl: 74%;
+      --bc: .10;
+      --hi: rgba(255, 255, 255, .65);
+      --shadow: 0 2px 6px rgba(19, 33, 60, .16);
+      --font-d: 'Tiro Devanagari Hindi', 'Noto Serif Devanagari', serif;
+      --font-b: 'Noto Sans Devanagari', 'Mukta', system-ui, sans-serif;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #08101F;
+        --bg2: #0D1830;
+        --panel: #101B35;
+        --ink: #E7EDF9;
+        --ink2: #A2B2D0;
+        --indigo: #8FB0FF;
+        --frame: #3A5290;
+        --hero1: #1B3578;
+        --hero2: #0A1738;
+        --hero-glow: rgba(240, 199, 90, .16);
+        --gold: #E4B84C;
+        --gold-text: #E4B84C;
+        --line: #4F6594;
+        --line2: #24355B;
+        --dot: rgba(143, 176, 255, .09);
+        --acc-bg: #8FB0FF;
+        --acc-fg: #0B1326;
+        --root-a: #4468C8;
+        --root-b: #28479A;
+        --nl: 30%;
+        --nc: .06;
+        --bl: 55%;
+        --bc: .10;
+        --hi: rgba(255, 255, 255, .10);
+        --shadow: 0 2px 6px rgba(0, 0, 0, .5);
+        color-scheme: dark;
+      }
+    }
+
+    :root[data-theme="dark"] {
+      --bg: #08101F;
+      --bg2: #0D1830;
+      --panel: #101B35;
+      --ink: #E7EDF9;
+      --ink2: #A2B2D0;
+      --indigo: #8FB0FF;
+      --frame: #3A5290;
+      --hero1: #1B3578;
+      --hero2: #0A1738;
+      --hero-glow: rgba(240, 199, 90, .16);
+      --gold: #E4B84C;
+      --gold-text: #E4B84C;
+      --line: #4F6594;
+      --line2: #24355B;
+      --dot: rgba(143, 176, 255, .09);
+      --acc-bg: #8FB0FF;
+      --acc-fg: #0B1326;
+      --root-a: #4468C8;
+      --root-b: #28479A;
+      --nl: 30%;
+      --nc: .06;
+      --bl: 55%;
+      --bc: .10;
+      --hi: rgba(255, 255, 255, .10);
+      --shadow: 0 2px 6px rgba(0, 0, 0, .5);
+      color-scheme: dark;
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      background-image: linear-gradient(180deg, var(--bg) 0, var(--bg2) 420px);
+      color: var(--ink);
+      font-family: var(--font-b);
+      font-size: 15px;
+      line-height: 1.6;
+      padding-block: 18px 52px;
+      padding-left: max(16px, env(safe-area-inset-left, 0px));
+      padding-right: max(16px, env(safe-area-inset-right, 0px));
+    }
+
+    .wrap {
+      max-width: 1180px;
+      margin: 0 auto
+    }
+
+    button,
+    input {
+      font-family: inherit;
+      font-size: inherit;
+      color: inherit
+    }
+
+    :focus-visible {
+      outline: 2.5px solid var(--gold);
+      outline-offset: 2px
+    }
+
+    /* hero banner */
+    .hero {
+      position: relative;
+      margin-bottom: 20px;
+      padding: 26px 20px 26px;
+      border-radius: 18px;
+      text-align: center;
+      color: #F6EFD8;
+      background: radial-gradient(110% 130% at 50% -30%, var(--hero-glow), transparent 62%), linear-gradient(165deg, var(--hero1), var(--hero2));
+      box-shadow: 0 14px 34px -14px rgba(10, 20, 50, .55);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 7px;
+      border: 1px solid rgba(240, 199, 90, .7);
+      border-radius: 12px;
+      pointer-events: none
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      top: 12px;
+      height: 14px;
+      border-radius: 3px;
+      pointer-events: none;
+      opacity: .9;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='14' viewBox='0 0 24 14'%3E%3Cpath d='M12 2l5 5-5 5-5-5z' fill='none' stroke='%23F0C75A' stroke-width='1.1'/%3E%3Ccircle cx='0' cy='7' r='1.3' fill='%23F0C75A'/%3E%3Ccircle cx='24' cy='7' r='1.3' fill='%23F0C75A'/%3E%3C/svg%3E");
+      background-repeat: repeat-x;
+      background-position: center;
+    }
+
+    .lotus {
+      margin-top: 14px;
+      width: 84px;
+      height: auto
+    }
+
+    .kicker {
+      margin: 0;
+      color: #F0C75A;
+      font-weight: 600;
+      letter-spacing: .14em;
+      font-size: 14px
+    }
+
+    h1 {
+      margin: 0;
+      font: 400 clamp(30px, 6.4vw, 54px)/1.25 var(--font-d);
+      color: #FFF8E1;
+      text-wrap: balance;
+      text-shadow: 0 2px 14px rgba(0, 0, 0, .35)
+    }
+
+    .rule {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: min(320px, 70%);
+      margin: 2px 0
+    }
+
+    .rule::before,
+    .rule::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #F0C75A)
+    }
+
+    .rule::after {
+      transform: scaleX(-1)
+    }
+
+    .rule i {
+      width: 9px;
+      height: 9px;
+      transform: rotate(45deg);
+      border: 1.5px solid #F0C75A;
+      background: rgba(240, 199, 90, .35)
+    }
+
+    .sub {
+      margin: 0;
+      color: #D6DEF2;
+      font-size: 16px
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin: 6px 0 0;
+      padding: 0;
+      list-style: none
+    }
+
+    .meta li {
+      padding: 4px 14px;
+      border: 1px solid rgba(240, 199, 90, .55);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .07);
+      font-size: 13.5px;
+      color: #E8EDF8;
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .meta li b {
+      color: #FFFFFF;
+      font-weight: 600
+    }
+
+    .meta li.sur {
+      background: #F0C75A;
+      border-color: #F0C75A;
+      color: #1B2A55;
+      font-weight: 700
+    }
+
+    .count {
+      margin: 4px 0 0;
+      font-size: 14px;
+      color: #BFCBE6
+    }
+
+    .count b {
+      color: #F0C75A;
+      font-weight: 700
+    }
+
+    /* toolbar */
+    .bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 12px
+    }
+
+    .seg {
+      display: inline-flex;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--panel)
+    }
+
+    .seg button {
+      border: 0;
+      background: transparent;
+      padding: 8px 20px;
+      cursor: pointer;
+      font-weight: 600
+    }
+
+    .seg button+button {
+      border-left: 1px solid var(--line)
+    }
+
+    .seg button[aria-pressed="true"] {
+      background: var(--acc-bg);
+      color: var(--acc-fg)
+    }
+
+    .btn {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: 12px;
+      padding: 8px 15px;
+      cursor: pointer
+    }
+
+    .btn:hover {
+      background: color-mix(in oklab, var(--panel) 85%, var(--indigo))
+    }
+
+    .find {
+      flex: 1 1 170px;
+      min-width: 0;
+      max-width: 320px
+    }
+
+    .find input {
+      width: 100%;
+      height: 40px;
+      padding: 0 14px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--panel);
+      color: var(--ink);
+    }
+
+    .find input::placeholder {
+      color: var(--ink2)
+    }
+
+    .sr {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap
+    }
+
+    #hitmsg {
+      font-size: 14px;
+      color: var(--gold-text);
+      min-width: 0
+    }
+
+    /* lineage bar */
+    .lineage {
+      margin: 0 0 12px;
+      padding: 11px 16px;
+      border: 1px solid var(--line2);
+      border-radius: 12px;
+      background: var(--panel);
+      color: var(--ink2);
+      font-size: 14.5px;
+      min-height: 50px;
+    }
+
+    .lineage ol {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2px 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none
+    }
+
+    .lineage li:not(:last-child)::after {
+      content: "›";
+      margin-left: 8px;
+      color: var(--gold-text);
+      font-weight: 700
+    }
+
+    .lineage li:last-child {
+      color: var(--ink);
+      font-weight: 700
+    }
+
+    .meta2 {
+      display: block;
+      margin-top: 4px;
+      font-size: 13.5px
+    }
+
+    /* frame with ornate corners */
+    .frame {
+      position: relative;
+      background: var(--panel);
+      border: 3px solid var(--frame);
+      border-radius: 12px;
+      padding: 12px;
+      box-shadow: 0 12px 30px -16px rgba(10, 20, 50, .45)
+    }
+
+    .frame::after {
+      content: "";
+      position: absolute;
+      inset: 5px;
+      border: 1px solid var(--gold);
+      border-radius: 7px;
+      pointer-events: none;
+      opacity: .9
+    }
+
+    .cn {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      z-index: 6;
+      pointer-events: none;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M4 38V14Q4 4 14 4H38' fill='none' stroke='%23D9A92E' stroke-width='2.2'/%3E%3Cpath d='M10 38V18Q10 10 18 10H38' fill='none' stroke='%23D9A92E' stroke-width='1' opacity='.65'/%3E%3Cpath d='M4 4l7 0-7 7z' fill='%23D9A92E'/%3E%3Ccircle cx='17' cy='17' r='2.6' fill='%23D9A92E'/%3E%3C/svg%3E");
+    }
+
+    .cn.tl {
+      left: -3px;
+      top: -3px
+    }
+
+    .cn.tr {
+      right: -3px;
+      top: -3px;
+      transform: scaleX(-1)
+    }
+
+    .cn.bl {
+      left: -3px;
+      bottom: -3px;
+      transform: scaleY(-1)
+    }
+
+    .cn.br {
+      right: -3px;
+      bottom: -3px;
+      transform: scale(-1, -1)
+    }
+
+    .scroller {
+      height: min(76vh, 880px);
+      overflow: auto;
+      position: relative;
+      border-radius: 6px;
+      background-image: radial-gradient(circle at 1px 1px, var(--dot) 1.2px, transparent 1.6px);
+      background-size: 22px 22px;
+    }
+
+    .gens {
+      position: sticky;
+      top: 0;
+      z-index: 3;
+      height: 36px;
+      background: var(--panel);
+      border-bottom: 1px solid var(--line2)
+    }
+
+    .gens span {
+      position: absolute;
+      top: 6px;
+      text-align: center;
+      font-size: 12.5px;
+      color: var(--ink2);
+      white-space: nowrap
+    }
+
+    .gens span::before {
+      content: "";
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-right: 6px;
+      vertical-align: middle;
+      background: oklch(var(--nl) var(--nc) var(--h));
+      border: 1.5px solid oklch(var(--bl) var(--bc) var(--h));
+    }
+
+    .canvas {
+      position: relative
+    }
+
+    .canvas svg {
+      position: absolute;
+      left: 0;
+      top: 0;
+      overflow: visible
+    }
+
+    .e {
+      fill: none;
+      stroke: var(--line);
+      stroke-width: 1.7;
+      stroke-linecap: round
+    }
+
+    .e.on {
+      stroke: var(--gold);
+      stroke-width: 3
+    }
+
+    .dot {
+      fill: var(--line)
+    }
+
+    .dot.on {
+      fill: var(--gold)
+    }
+
+    .has-sel .e:not(.on),
+    .has-sel .dot:not(.on) {
+      opacity: .28
+    }
+
+    /* nodes and chips (shared look) */
+    .node,
+    .chip {
+      display: flex;
+      align-items: stretch;
+      border-radius: 14px;
+      background: linear-gradient(180deg, oklch(calc(var(--nl) + 3%) var(--nc) var(--h)), oklch(var(--nl) var(--nc) var(--h)));
+      border: 1.5px solid oklch(var(--bl) var(--bc) var(--h));
+      box-shadow: inset 0 1px 0 var(--hi), var(--shadow);
+      transition: opacity .18s, transform .18s;
+    }
+
+    .node {
+      position: absolute;
+      --rh: 42px
+    }
+
+    .chip {
+      position: relative;
+      display: inline-flex;
+      --rh: 38px;
+      max-width: 100%
+    }
+
+    .node:hover,
+    .chip:hover {
+      transform: translateY(-1px)
+    }
+
+    .has-sel .node:not(.on),
+    .has-sel .chip:not(.on) {
+      opacity: .38
+    }
+
+    .sel {
+      outline: 2.5px solid var(--gold);
+      outline-offset: 2px
+    }
+
+    .hit {
+      box-shadow: 0 0 0 3px var(--gold), var(--shadow)
+    }
+
+    .q {
+      border-style: dashed
+    }
+
+    .nm {
+      flex: 1;
+      min-width: 0;
+      border: 0;
+      background: transparent;
+      text-align: left;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: calc(var(--rh) - 3px);
+      padding: 0 8px 0 14px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      border-radius: 13px;
+    }
+
+    .tg {
+      flex: none;
+      min-width: 36px;
+      padding: 0 7px;
+      border: 0;
+      border-left: 1px solid oklch(var(--bl) var(--bc) var(--h));
+      background: transparent;
+      color: var(--ink2);
+      font-weight: 700;
+      font-size: 12.5px;
+      cursor: pointer;
+      border-radius: 0 13px 13px 0;
+    }
+
+    .tg:hover {
+      background: color-mix(in oklab, transparent 88%, currentColor)
+    }
+
+    .node:has(.tg) .nm,
+    .chip:has(.tg) .nm {
+      border-radius: 13px 0 0 13px
+    }
+
+    .qm {
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      margin-left: 6px;
+      border: 1px dashed var(--gold-text);
+      border-radius: 50%;
+      color: var(--gold-text);
+      font-size: 10px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 13px;
+      text-align: center;
+      vertical-align: 2px;
+    }
+
+    .root {
+      background: linear-gradient(160deg, var(--root-a), var(--root-b));
+      border: 2px solid var(--gold);
+      box-shadow: 0 0 0 4px color-mix(in oklab, var(--gold) 28%, transparent), var(--shadow);
+    }
+
+    .root .nm {
+      color: #FFF8E1;
+      font-size: 17px
+    }
+
+    .root .tg {
+      color: #FFF8E1;
+      border-left-color: rgba(255, 255, 255, .4)
+    }
+
+    /* gentle entrance on first paint */
+    @keyframes rise {
+      from {
+        opacity: .3;
+        transform: translateX(-12px)
+      }
+    }
+
+    .intro .node {
+      animation: rise .55s cubic-bezier(.2, .7, .2, 1) backwards;
+      animation-delay: calc(var(--i) * 55ms)
+    }
+
+    /* list view */
+    .list ul {
+      list-style: none;
+      margin: 0;
+      padding: 0
+    }
+
+    .list ul ul {
+      margin-left: 14px;
+      padding-left: 22px
+    }
+
+    .oi {
+      position: relative;
+      padding-top: 6px
+    }
+
+    .list ul ul>.oi::before {
+      content: "";
+      position: absolute;
+      left: -22px;
+      top: 0;
+      bottom: 0;
+      border-left: 1.6px solid var(--line)
+    }
+
+    .list ul ul>.oi:last-child::before {
+      bottom: auto;
+      height: 25px
+    }
+
+    .list ul ul>.oi::after {
+      content: "";
+      position: absolute;
+      left: -22px;
+      top: 25px;
+      width: 18px;
+      border-top: 1.6px solid var(--line)
+    }
+
+    /* notes */
+    .notes {
+      margin-top: 24px;
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr))
+    }
+
+    .notes section {
+      min-width: 0;
+      padding: 16px 18px;
+      border: 1px solid var(--line2);
+      border-radius: 14px;
+      background: var(--panel)
+    }
+
+    .notes h2 {
+      margin: 0 0 8px;
+      font: 400 21px/1.3 var(--font-d)
+    }
+
+    .notes p {
+      margin: 0 0 6px;
+      font-size: 14px;
+      color: var(--ink2)
+    }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px
+    }
+
+    .legend .chip {
+      box-shadow: none;
+      height: 28px;
+      --rh: 28px;
+      padding: 0 12px;
+      font-size: 12.5px;
+      font-weight: 600;
+      line-height: 25px;
+      align-items: center;
+      transition: none
+    }
+
+    .legend .chip:hover {
+      transform: none
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .node,
+      .chip {
+        transition: none
+      }
+
+      .node:hover,
+      .chip:hover {
+        transform: none
+      }
+
+      .intro .node {
+        animation: none
+      }
+    }
+
+    @media (max-width:520px) {
+      .bar .btn {
+        flex: 1 1 auto
+      }
+
+      .find {
+        max-width: none
+      }
+
+      .hero {
+        padding-inline: 12px
+      }
+    }
+  </style>
+
+  <div class="wrap">
+    <header class="hero">
+      <svg class="lotus" viewBox="0 0 120 64" aria-hidden="true">
+        <g fill="none" stroke="#F0C75A" stroke-width="1.6" stroke-linecap="round">
+          <ellipse cx="60" cy="40" rx="9" ry="22" transform="rotate(-62 60 60)" />
+          <ellipse cx="60" cy="40" rx="9" ry="22" transform="rotate(62 60 60)" />
+          <ellipse cx="60" cy="40" rx="9" ry="23" transform="rotate(-32 60 60)" />
+          <ellipse cx="60" cy="40" rx="9" ry="23" transform="rotate(32 60 60)" />
+          <ellipse cx="60" cy="38" rx="9" ry="25" fill="rgba(240,199,90,.28)" />
+          <path d="M30 60H90" />
+        </g>
+      </svg>
+      <p class="kicker">॥ वंशावली ॥</p>
+      <h1>श्री किशनलाल जी की वंशावली</h1>
+      <div class="rule" aria-hidden="true"><i></i></div>
+      <p class="sub">हथायी से आगमन · गोत्र नीलीखड़ा</p>
+      <ul class="meta">
+        <li class="sur">गांधी</li>
+        <li><b>संकलन कर्ता:</b> श्री कान्तिलाल भाणावत (s/o अमरचन्द जी)</li>
+        <li><b>गोत्र:</b> नीलीखड़ा (ओम का माता)</li>
+      </ul>
+      <p class="count">कुल <b id="total"></b> नाम · <b id="gens"></b> पीढ़ियाँ</p>
+    </header>
+
+    <div class="bar">
+      <div class="seg" role="group" aria-label="दृश्य चुनें">
+        <button type="button" id="vTree" aria-pressed="true">वृक्ष</button>
+        <button type="button" id="vList" aria-pressed="false">सूची</button>
+      </div>
+      <div class="find">
+        <label class="sr" for="q">नाम खोजें</label>
+        <input id="q" type="search" placeholder="नाम खोजें" autocomplete="off">
+      </div>
+      <button type="button" class="btn" id="bOpen">सभी खोलें</button>
+      <button type="button" class="btn" id="bShut">सभी समेटें</button>
+      <span id="hitmsg" aria-live="polite"></span>
+    </div>
+
+    <div class="lineage" id="lin" aria-live="polite"></div>
+
+    <div class="frame" id="frame">
+      <i class="cn tl" aria-hidden="true"></i><i class="cn tr" aria-hidden="true"></i>
+      <i class="cn bl" aria-hidden="true"></i><i class="cn br" aria-hidden="true"></i>
+      <div class="scroller" id="scroller">
+        <div class="gens" id="gensbar"></div>
+        <div class="canvas" id="canvas"></div>
+      </div>
+      <div class="list" id="list" hidden></div>
+    </div>
+
+    <div class="notes">
+      <section>
+        <h2>पीढ़ियों के रंग</h2>
+        <div class="legend" id="legend"></div>
+        <p style="margin-top:10px">शाखा समेटने या खोलने के लिए नाम के साथ बने + / − बटन दबाएँ।</p>
+      </section>
+      <section>
+        <h2>चित्र से मिलान</h2>
+        <p><span class="qm" style="margin:0 4px 0 0">?</span>वाले नाम हस्तलिखित चित्र में साफ़ नहीं पढ़े गए: मणीलाल जी,
+          बिन्दु और निन्मय। सही नाम बताएँगे तो बदल दूँगा।</p>
+        <p>कानजी और थावरचन्द जी के आगे चित्र में कोई नाम नहीं लिखा है।</p>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      'use strict';
+      var T = {
+        n: 'श्री किशनलाल जी', c: [
+          {n: 'कानजी'},
+          {n: 'थावरचन्द जी'},
+          {
+            n: 'प्रेमचन्द जी', c: [
+              {
+                n: 'तेजयाल जी', c: [
+                  {
+                    n: 'शंकरलाल जी', c: [
+                      {n: 'रविप्रकाश', c: [{n: 'किर्तेश'}, {n: 'सुक्षम'}, {n: 'अंकित'}]},
+                      {n: 'मुकेश', c: [{n: 'चिराग'}]},
+                      {n: 'ओमप्रकाश'}
+                    ]
+                  },
+                  {
+                    n: 'मोहनलाल जी', c: [
+                      {n: 'ललीत', c: [{n: 'दिपांशु'}]},
+                      {n: 'जयकुमार', c: [{n: 'सोप्टी'}]},
+                      {n: 'अनिल'}
+                    ]
+                  },
+                  {n: 'शान्तिलाल जी', c: [{n: 'सिद्धार्थ'}, {n: 'अल्पेश'}, {n: 'नितेश'}]}
+                ]
+              }
+            ]
+          },
+          {
+            n: 'हीराचन्द जी', c: [
+              {
+                n: 'जालमचन्द जी', c: [
+                  {
+                    n: 'नाथुलाल जी', c: [
+                      {
+                        n: 'मणीलाल जी', q: 1, c: [
+                          {n: 'सुरेन्द्र', c: [{n: 'दिपक', c: [{n: 'अंशुल'}]}, {n: 'आनन्द'}]},
+                          {n: 'रमेश', c: [{n: 'पारस'}]},
+                          {n: 'भूपेन्द्र', c: [{n: 'मानव'}]},
+                          {n: 'जीवन', c: [{n: 'शैलेश'}, {n: 'अंकित'}]},
+                          {n: 'प्राण'},
+                          {n: 'राजेन्द्र', c: [{n: 'सतीश'}, {n: 'हेमन्त'}]},
+                          {n: 'दिलिप', c: [{n: 'पलक'}]}
+                        ]
+                      },
+                      {
+                        n: 'चन्दनलाल जी', c: [
+                          {n: 'अरविन्द', c: [{n: 'हिमान्शु'}]},
+                          {n: 'योगेन्द्र', c: [{n: 'प्रितेश'}, {n: 'मौलिक'}]},
+                          {n: 'जयन्त', c: [{n: 'दिव्येश'}]}
+                        ]
+                      },
+                      {
+                        n: 'फतेहलाल जी', c: [
+                          {n: 'अरूण', c: [{n: 'आलोक'}, {n: 'आशीष'}, {n: 'निलेश'}]},
+                          {n: 'राजकुमार', c: [{n: 'बिन्दु', q: 1}]},
+                          {n: 'सुशील', c: [{n: 'निन्मय', q: 1}]}
+                        ]
+                      },
+                      {n: 'महावीर प्रसाद जी', c: [{n: 'कमलेश'}]},
+                      {
+                        n: 'सुन्दरलाल जी', c: [
+                          {n: 'विमलेश', c: [{n: 'नितिन'}, {n: 'दर्पण'}]},
+                          {n: 'बाहुबली'}
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      };
+
+      var HUES = [255, 150, 120, 95, 65, 30, 355, 315];
+      var NW = 190, NH = 42, GX = 50, GY = 12, PADX = 20, PADY = 18;
+      var byId = [], all = [], maxD = 0, sel = null, hits = new Set(), first = true;
+      var view = window.matchMedia('(max-width:720px)').matches ? 'list' : 'tree';
+      var smooth = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+
+      function toDev(n) {return String(n).replace(/\d/g, function (d) {return '०१२३४५६७८९'.charAt(+d);});}
+      (function prep(n, p, d) {
+        n.p = p; n.d = d; n.id = byId.length; n.open = true; byId.push(n); all.push(n);
+        if (d > maxD) maxD = d;
+        (n.c || []).forEach(function (k) {prep(k, n, d + 1);});
+      })(T, null, 0);
+
+      var $ = function (id) {return document.getElementById(id);};
+      var canvas = $('canvas'), gensbar = $('gensbar'), scroller = $('scroller'), list = $('list'), lin = $('lin'),
+        frame = $('frame'), q = $('q'), hitmsg = $('hitmsg');
+      $('total').textContent = toDev(all.length);
+      $('gens').textContent = toDev(maxD + 1);
+
+      var lg = '';
+      for (var i = 0; i <= maxD; i++) {lg += '<span class="chip" style="--h:' + HUES[i] + '">पीढ़ी ' + toDev(i + 1) + '</span>';}
+      $('legend').innerHTML = lg;
+
+      function X(d) {return PADX + d * (NW + GX);}
+      function Y(y) {return PADY + y * (NH + GY);}
+
+      function lineageSet() {
+        if (!sel) return null;
+        var s = new Set(), p = sel;
+        while (p) {s.add(p); p = p.p;}
+        (function dn(n) {s.add(n); (n.c || []).forEach(dn);})(sel);
+        return s;
+      }
+
+      function nodeHTML(n, style, cls, S) {
+        var c = [cls];
+        if (n.d === 0) c.push('root');
+        if (n.q) c.push('q');
+        if (S && S.has(n)) c.push('on');
+        if (sel === n) c.push('sel');
+        if (hits.has(n)) c.push('hit');
+        var k = n.c && n.c.length;
+        return '<div class="' + c.join(' ') + '" style="' + style + '--h:' + HUES[n.d] + ';--i:' + n.d + '" data-id="' + n.id + '">' +
+          '<button class="nm" data-act="sel" type="button">' + n.n + (n.q ? '<i class="qm" aria-label="नाम स्पष्ट नहीं पढ़ा गया">?</i>' : '') + '</button>' +
+          (k ? '<button class="tg" data-act="tg" type="button" aria-expanded="' + n.open + '" aria-label="' + (n.open ? 'शाखा समेटें' : 'शाखा खोलें') + '">' + (n.open ? '−' : '+' + toDev(n.c.length)) + '</button>' : '') +
+          '</div>';
+      }
+
+      function renderTree(S) {
+        var vis = [], row = 0;
+        (function walk(n) {
+          vis.push(n);
+          var k = (n.c && n.open) ? n.c : [];
+          if (!k.length) {n.y = row++;}
+          else {k.forEach(walk); n.y = (k[0].y + k[k.length - 1].y) / 2;}
+        })(T);
+        var dm = 0; vis.forEach(function (n) {if (n.d > dm) dm = n.d;});
+        var W = PADX * 2 + (dm + 1) * NW + dm * GX, H = PADY * 2 + row * (NH + GY) - GY;
+        var off = '', on = '', dots = '', nodes = '';
+        vis.forEach(function (n) {
+          if (n.c && n.open) {
+            var ax = X(n.d) + NW, ay = Y(n.y) + NH / 2, anyOn = false;
+            n.c.forEach(function (k) {
+              var x2 = X(k.d), y2 = Y(k.y) + NH / 2, m = (ax + x2) / 2;
+              var d = 'M' + ax + ' ' + ay + 'C' + m + ' ' + ay + ' ' + m + ' ' + y2 + ' ' + x2 + ' ' + y2;
+              var hot = S && S.has(n) && S.has(k);
+              if (hot) {on += '<path class="e on" d="' + d + '"/>'; anyOn = true;}
+              else off += '<path class="e" d="' + d + '"/>';
+              dots += '<circle class="dot' + (hot ? ' on' : '') + '" cx="' + x2 + '" cy="' + y2 + '" r="3.4"/>';
+            });
+            dots += '<circle class="dot' + (anyOn ? ' on' : '') + '" cx="' + ax + '" cy="' + ay + '" r="4"/>';
+          }
+          nodes += nodeHTML(n, 'left:' + X(n.d) + 'px;top:' + Y(n.y) + 'px;width:' + NW + 'px;height:' + NH + 'px;', 'node', S);
+        });
+        canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
+        canvas.className = 'canvas' + (S ? ' has-sel' : '') + (first ? ' intro' : '');
+        canvas.innerHTML = '<svg width="' + W + '" height="' + H + '" aria-hidden="true">' + off + on + dots + '</svg>' + nodes;
+        gensbar.style.width = W + 'px';
+        var g = '';
+        for (var d = 0; d <= dm; d++) {g += '<span style="left:' + X(d) + 'px;width:' + NW + 'px;--h:' + HUES[d] + '">पीढ़ी ' + toDev(d + 1) + '</span>';}
+        gensbar.innerHTML = g;
+        first = false;
+      }
+
+      function renderList(S) {
+        function li(n) {
+          var open = n.c && n.open;
+          return '<li class="oi">' + nodeHTML(n, '', 'chip', S) + (open ? '<ul>' + n.c.map(li).join('') + '</ul>' : '') + '</li>';
+        }
+        list.className = 'list' + (S ? ' has-sel' : '');
+        list.innerHTML = '<ul>' + li(T) + '</ul>';
+      }
+
+      function updLin() {
+        if (!sel) {
+          lin.innerHTML = '<span>किसी भी नाम पर टैप करें। उसका पूरा वंश-पथ और आगे की शाखा चमक उठेगी।</span>';
+          return;
+        }
+        var ch = [], p = sel, desc = 0;
+        while (p) {ch.unshift(p); p = p.p;}
+        (function f(n) {(n.c || []).forEach(function (x) {desc++; f(x);});})(sel);
+        lin.innerHTML = '<ol>' + ch.map(function (x) {return '<li>' + x.n + '</li>';}).join('') + '</ol>' +
+          '<span class="meta2">पीढ़ी ' + toDev(sel.d + 1) + ' · सीधी संतान ' + toDev(sel.c ? sel.c.length : 0) + ' · कुल वंशज ' + toDev(desc) + '</span>';
+      }
+
+      function render(focusKey) {
+        var S = lineageSet();
+        scroller.hidden = view !== 'tree';
+        list.hidden = view !== 'list';
+        $('vTree').setAttribute('aria-pressed', String(view === 'tree'));
+        $('vList').setAttribute('aria-pressed', String(view === 'list'));
+        if (view === 'tree') renderTree(S); else renderList(S);
+        updLin();
+        if (focusKey) {
+          var el = frame.querySelector('[data-id="' + focusKey[0] + '"] [data-act="' + focusKey[1] + '"]');
+          if (el) el.focus({preventScroll: true});
+        }
+      }
+
+      function reveal(n) {
+        if (view === 'tree') {
+          scroller.scrollTo({left: Math.max(0, X(n.d) - PADX - 24), top: Math.max(0, Y(n.y) - 120), behavior: smooth});
+        } else {
+          var el = list.querySelector('[data-id="' + n.id + '"]');
+          if (el) el.scrollIntoView({block: 'center', behavior: smooth});
+        }
+      }
+
+      frame.addEventListener('click', function (e) {
+        var b = e.target.closest('button[data-act]');
+        if (!b) return;
+        var holder = b.closest('[data-id]');
+        var n = byId[+holder.getAttribute('data-id')];
+        var act = b.getAttribute('data-act');
+        if (act === 'tg') {n.open = !n.open;}
+        else {sel = (sel === n) ? null : n;}
+        render([n.id, act]);
+      });
+
+      q.addEventListener('input', function () {
+        var s = q.value.trim().normalize('NFC');
+        hits = new Set();
+        if (s) {
+          all.forEach(function (n) {if (n.n.normalize('NFC').indexOf(s) > -1) hits.add(n);});
+          hits.forEach(function (n) {for (var p = n.p; p; p = p.p) p.open = true;});
+        }
+        render();
+        hitmsg.textContent = s ? (hits.size ? toDev(hits.size) + ' मिले' : 'कोई नाम नहीं मिला') : '';
+        if (hits.size) reveal(Array.from(hits)[0]);
+      });
+
+      $('bOpen').addEventListener('click', function () {all.forEach(function (n) {n.open = true;}); render();});
+      $('bShut').addEventListener('click', function () {all.forEach(function (n) {n.open = false;}); T.open = true; render();});
+      $('vTree').addEventListener('click', function () {view = 'tree'; render();});
+      $('vList').addEventListener('click', function () {view = 'list'; render();});
+
+      render();
+    })();
+  </script>
+
+</body>
+
+</html>
