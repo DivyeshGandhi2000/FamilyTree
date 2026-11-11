@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="hi">
 
 <head>
   <meta charset=utf8>
@@ -166,6 +166,17 @@
     :focus-visible {
       outline: 2.5px solid var(--gold);
       outline-offset: 2px
+    }
+
+    /* language toggle at the very top */
+    .langbar {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 12px
+    }
+
+    .langbar .seg button {
+      padding: 7px 18px
     }
 
     /* hero banner */
@@ -811,6 +822,13 @@
   </style>
 
   <div class="wrap">
+    <div class="langbar">
+      <div class="seg" role="group" aria-label="भाषा / Language">
+        <button type="button" id="lHi" aria-pressed="true" lang="hi">हिन्दी</button>
+        <button type="button" id="lEn" aria-pressed="false" lang="en">English</button>
+      </div>
+    </div>
+
     <header class="hero">
       <svg class="lotus" viewBox="0 0 120 64" aria-hidden="true">
         <g fill="none" stroke="#F0C75A" stroke-width="1.6" stroke-linecap="round">
@@ -822,25 +840,25 @@
           <path d="M30 60H90" />
         </g>
       </svg>
-      <p class="kicker">॥ वंशावली ॥</p>
-      <h1>श्री किशनलाल जी की वंशावली</h1>
+      <p class="kicker" data-k="kicker">॥ वंशावली ॥</p>
+      <h1 data-k="h1">श्री किशनलाल जी की वंशावली</h1>
       <div class="rule" aria-hidden="true"><i></i></div>
-      <p class="sub">हथायी से आगमन · गोत्र नीलीखड़ा</p>
+      <p class="sub" data-k="sub">हथायी से आगमन · गोत्र नीलीखड़ा</p>
       <ul class="meta">
-        <li class="sur">गांधी</li>
-        <li><b>संकलन कर्ता:</b> श्री कान्तिलाल भाणावत (s/o अमरचन्द जी)</li>
-        <li><b>गोत्र:</b> नीलीखड़ा (ओम का माता)</li>
+        <li class="sur" data-k="sur">गांधी</li>
+        <li data-k="compiler"><b>संकलन कर्ता:</b> श्री कान्तिलाल भाणावत (s/o अमरचन्द जी)</li>
+        <li data-k="gotra"><b>गोत्र:</b> नीलीखड़ा (ओम का माता)</li>
       </ul>
-      <p class="count">कुल <b id="total"></b> नाम · <b id="gens"></b> पीढ़ियाँ</p>
+      <p class="count" data-k="count">कुल <b id="total"></b> नाम · <b id="gens"></b> पीढ़ियाँ</p>
     </header>
 
     <div class="bar">
-      <div class="seg" role="group" aria-label="दृश्य चुनें">
+      <div class="seg" id="viewseg" role="group" aria-label="दृश्य चुनें">
         <button type="button" id="vTree" aria-pressed="true">वृक्ष</button>
         <button type="button" id="vList" aria-pressed="false">सूची</button>
       </div>
       <div class="find">
-        <label class="sr" for="q">नाम खोजें</label>
+        <label class="sr" for="q" id="qlabel">नाम खोजें</label>
         <input id="q" type="search" placeholder="नाम खोजें" autocomplete="off">
       </div>
       <button type="button" class="btn" id="bOpen">सभी खोलें</button>
@@ -862,26 +880,26 @@
 
     <div class="notes">
       <section>
-        <h2>पीढ़ियों के रंग</h2>
+        <h2 data-k="legendH">पीढ़ियों के रंग</h2>
         <div class="legend" id="legend"></div>
-        <p style="margin-top:10px">शाखा समेटने या खोलने के लिए नाम के साथ बने + / − बटन दबाएँ।</p>
+        <p style="margin-top:10px" data-k="legendP">शाखा समेटने या खोलने के लिए नाम के साथ बने + / − बटन दबाएँ।</p>
       </section>
       <section>
-        <h2>चित्र से मिलान</h2>
-        <p><span class="qm" style="margin:0 4px 0 0">?</span>वाले नाम हस्तलिखित चित्र में साफ़ नहीं पढ़े गए: मणीलाल जी,
+        <h2 data-k="matchH">चित्र से मिलान</h2>
+        <p data-k="matchP1"><span class="qm" style="margin:0 4px 0 0">?</span>वाले नाम हस्तलिखित चित्र में साफ़ नहीं
+          पढ़े गए: मणीलाल जी,
           बिन्दु और निन्मय। सही नाम बताएँगे तो बदल दूँगा।</p>
-        <p>कानजी और थावरचन्द जी के आगे चित्र में कोई नाम नहीं लिखा है।</p>
+        <p data-k="matchP2">कानजी और थावरचन्द जी के आगे चित्र में कोई नाम नहीं लिखा है।</p>
       </section>
     </div>
     <div class="notes">
       <section>
-
-        <h2>डिजाइन एवं विकसितकर्ता</h2>
-        <p>
+        <h2 data-k="devH">डिजाइन एवं विकसितकर्ता</h2>
+        <p data-k="dev">
           <span class="qm" style="margin: 0 4px 0 0;">?</span>
           दिव्येश गांधी, सुपुत्र श्री जयंत गांधी
         </p>
-        <p>अधिक जानकारी के लिए संपर्क करें: 9784587133, 8769354433, 9660544350</p>
+        <p data-k="contact">अधिक जानकारी के लिए संपर्क करें: 9784587133, 8769354433, 9660544350</p>
       </section>
     </div>
   </div>
@@ -901,7 +919,7 @@
                     n: 'शंकरलाल जी', c: [
                       {n: 'रविप्रकाश', c: [{n: 'किर्तेश'}, {n: 'सुक्षम'}, {n: 'अंकित'}]},
                       {n: 'मुकेश', c: [{n: 'चिराग'}]},
-                      {n: 'ओमप्रकाश'}
+                      {n: 'ओमप्रकाश', c: [{n: 'कौशिक'}]}
                     ]
                   },
                   {
@@ -963,13 +981,86 @@
         ]
       };
 
+      /* English spellings, keyed by the Hindi name used in the tree above */
+      var EN = {
+        'श्री किशनलाल जी': 'Shri Kishanlal Ji', 'कानजी': 'Kanji', 'थावरचन्द जी': 'Thavarchand Ji',
+        'प्रेमचन्द जी': 'Premchand Ji', 'तेजपाल जी': 'Tejpal Ji', 'शंकरलाल जी': 'Shankarlal Ji',
+        'रविप्रकाश': 'Raviprakash', 'किर्तेश': 'Kirtesh', 'सुक्षम': 'Suksham', 'अंकित': 'Ankit',
+        'मुकेश': 'Mukesh', 'चिराग': 'Chirag', 'ओमप्रकाश': 'Omprakash', 'कौशिक': 'Koshik', 'मोहनलाल जी': 'Mohanlal Ji',
+        'ललीत': 'Lalit', 'दिपांशु': 'Dipanshu', 'जयकुमार': 'Jaykumar', 'सोप्टी': 'Sopti', 'अनिल': 'Anil',
+        'शान्तिलाल जी': 'Shantilal Ji', 'सिद्धार्थ': 'Siddharth', 'अल्पेश': 'Alpesh', 'नितेश': 'Nitesh',
+        'हीराचन्द जी': 'Heerachand Ji', 'जालमचन्द जी': 'Jalamchand Ji', 'नाथुलाल जी': 'Nathulal Ji',
+        'मणीलाल जी': 'Manilal Ji', 'सुरेन्द्र': 'Surendra', 'दिपक': 'Deepak', 'अंशुल': 'Anshul',
+        'आनन्द': 'Anand', 'रमेश': 'Ramesh', 'पारस': 'Paras', 'हिताक्ष': 'Hitaksh', 'भूपेन्द्र': 'Bhupendra',
+        'मानव': 'Manav', 'जीवन': 'Jeevan', 'शैलेश': 'Shailesh', 'प्राण': 'Pran', 'राजेन्द्र': 'Rajendra',
+        'सतीश': 'Satish', 'हेमन्त': 'Hemant', 'दिलिप': 'Dilip', 'पलक': 'Palak', 'चन्दनलाल जी': 'Chandanlal Ji',
+        'अरविन्द': 'Arvind', 'हिमान्शु': 'Himanshu', 'योगेन्द्र': 'Yogendra', 'प्रितेश': 'Pritesh',
+        'मौलिक': 'Moulik', 'जयन्त': 'Jayant', 'दिव्येश': 'Divyesh', 'फतेहलाल जी': 'Fatehlal Ji',
+        'अरूण': 'Arun', 'आलोक': 'Alok', 'आशीष': 'Ashish', 'निलेश': 'Nilesh', 'राजकुमार': 'Rajkumar',
+        'बिन्दु': 'Bindu', 'सुशील': 'Sushil', 'निन्मय': 'Ninmay', 'महावीर प्रसाद जी': 'Mahavir Prasad Ji',
+        'कमलेश': 'Kamlesh', 'सुन्दरलाल जी': 'Sundarlal Ji', 'विमलेश': 'Vimlesh', 'नितिन': 'Nitin',
+        'दर्पण': 'Darpan', 'बाहुबली': 'Bahubali'
+      };
+
+      var QM = '<span class="qm" style="margin:0 4px 0 0">?</span>';
+      var I18N = {
+        hi: {
+          title: 'किशनलाल जी की वंशावली', kicker: '॥ वंशावली ॥', h1: 'श्री किशनलाल जी की वंशावली',
+          sub: 'हथायी से आगमन · गोत्र नीलीखड़ा', sur: 'गांधी',
+          compiler: '<b>संकलन कर्ता:</b> श्री कान्तिलाल भाणावत (s/o अमरचन्द जी)',
+          gotra: '<b>गोत्र:</b> नीलीखड़ा (ओम का माता)',
+          count: 'कुल <b id="total"></b> नाम · <b id="gens"></b> पीढ़ियाँ',
+          vTree: 'वृक्ष', vList: 'सूची', segLabel: 'दृश्य चुनें', find: 'नाम खोजें',
+          bOpen: 'सभी खोलें', bShut: 'सभी समेटें',
+          legendH: 'पीढ़ियों के रंग', gen: 'पीढ़ी ',
+          legendP: 'शाखा समेटने या खोलने के लिए नाम के साथ बने + / − बटन दबाएँ।',
+          matchH: 'चित्र से मिलान',
+          matchP1: QM + 'वाले नाम हस्तलिखित चित्र में साफ़ नहीं पढ़े गए: मणीलाल जी, बिन्दु और निन्मय। सही नाम बताएँगे तो बदल दूँगा।',
+          matchP2: 'कानजी और थावरचन्द जी के आगे चित्र में कोई नाम नहीं लिखा है।',
+          devH: 'डिजाइन एवं विकसितकर्ता',
+          dev: QM + 'दिव्येश गांधी, सुपुत्र श्री जयंत गांधी',
+          contact: 'अधिक जानकारी के लिए संपर्क करें: 9784587133, 8769354433, 9660544350',
+          unclear: 'नाम स्पष्ट नहीं पढ़ा गया', shut: 'शाखा समेटें', open: 'शाखा खोलें',
+          hint: 'किसी भी नाम पर टैप करें। उसका पूरा वंश-पथ और आगे की शाखा चमक उठेगी।',
+          meta: function (g, k, d) {return 'पीढ़ी ' + g + ' · सीधी संतान ' + k + ' · कुल वंशज ' + d;},
+          found: function (n) {return n + ' मिले';}, none: 'कोई नाम नहीं मिला'
+        },
+        en: {
+          title: 'Genealogy of Kishanlal Ji', kicker: '॥ GENEALOGY ॥', h1: 'Genealogy of Shri Kishanlal Ji',
+          sub: 'Originally from Hathayi · Gotra Nilikhada', sur: 'Gandhi',
+          compiler: '<b>Compiled by:</b> Shri Kantilal Bhanawat (s/o Amarchand Ji)',
+          gotra: '<b>Gotra:</b> Nilikhada (Om\u2019s mother)',
+          count: 'Total <b id="total"></b> names · <b id="gens"></b> generations',
+          vTree: 'Tree', vList: 'List', segLabel: 'Choose view', find: 'Search name',
+          bOpen: 'Expand all', bShut: 'Collapse all',
+          legendH: 'Generation colours', gen: 'Generation ',
+          legendP: 'Use the + / − button beside a name to collapse or expand its branch.',
+          matchH: 'Check against the chart',
+          matchP1: QM + 'Names marked with this could not be read clearly in the handwritten chart: Manilal Ji, Bindu and Ninmay. Tell me the correct names and I will update them.',
+          matchP2: 'No name is written after Kanji and Thavarchand Ji in the chart.',
+          devH: 'Design & Development',
+          dev: QM + 'Divyesh Gandhi, son of Shri Jayant Gandhi',
+          contact: 'For more information, contact: 9784587133, 8769354433, 9660544350',
+          unclear: 'Name could not be read clearly', shut: 'Collapse branch', open: 'Expand branch',
+          hint: 'Tap any name. Its full line of descent and the branch below it will light up.',
+          meta: function (g, k, d) {return 'Generation ' + g + ' · Direct children ' + k + ' · Total descendants ' + d;},
+          found: function (n) {return n + ' found';}, none: 'No name found'
+        }
+      };
+
       var HUES = [255, 150, 120, 95, 65, 30, 355, 315];
       var NW = 190, NH = 42, GX = 50, GY = 12, PADX = 20, PADY = 18;
       var byId = [], all = [], maxD = 0, sel = null, hits = new Set(), first = true;
       var view = window.matchMedia('(max-width:720px)').matches ? 'list' : 'tree';
       var smooth = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+      var lang = 'hi';
+      try {if (localStorage.getItem('vansh-lang') === 'en') lang = 'en';} catch (e) { }
 
+      function S() {return I18N[lang];}
       function toDev(n) {return String(n).replace(/\d/g, function (d) {return '०१२३४५६७८९'.charAt(+d);});}
+      function num(n) {return lang === 'en' ? String(n) : toDev(n);}
+      function dn(n) {return lang === 'en' ? (EN[n.n] || n.n) : n.n;}
+
       (function prep(n, p, d) {
         n.p = p; n.d = d; n.id = byId.length; n.open = true; byId.push(n); all.push(n);
         if (d > maxD) maxD = d;
@@ -979,39 +1070,57 @@
       var $ = function (id) {return document.getElementById(id);};
       var canvas = $('canvas'), gensbar = $('gensbar'), scroller = $('scroller'), list = $('list'), lin = $('lin'),
         frame = $('frame'), q = $('q'), hitmsg = $('hitmsg');
-      $('total').textContent = toDev(all.length);
-      $('gens').textContent = toDev(maxD + 1);
-
-      var lg = '';
-      for (var i = 0; i <= maxD; i++) {lg += '<span class="chip" style="--h:' + HUES[i] + '">पीढ़ी ' + toDev(i + 1) + '</span>';}
-      $('legend').innerHTML = lg;
 
       function X(d) {return PADX + d * (NW + GX);}
       function Y(y) {return PADY + y * (NH + GY);}
+
+      function applyStatic() {
+        var s = S();
+        document.documentElement.lang = lang === 'en' ? 'en' : 'hi';
+        document.title = s.title;
+        Array.prototype.forEach.call(document.querySelectorAll('[data-k]'), function (el) {
+          var v = s[el.getAttribute('data-k')];
+          if (typeof v === 'string') el.innerHTML = v;
+        });
+        $('total').textContent = num(all.length);
+        $('gens').textContent = num(maxD + 1);
+        $('vTree').textContent = s.vTree;
+        $('vList').textContent = s.vList;
+        $('viewseg').setAttribute('aria-label', s.segLabel);
+        $('qlabel').textContent = s.find;
+        q.placeholder = s.find;
+        $('bOpen').textContent = s.bOpen;
+        $('bShut').textContent = s.bShut;
+        $('lHi').setAttribute('aria-pressed', String(lang === 'hi'));
+        $('lEn').setAttribute('aria-pressed', String(lang === 'en'));
+        var lg = '';
+        for (var i = 0; i <= maxD; i++) {lg += '<span class="chip" style="--h:' + HUES[i] + '">' + s.gen + num(i + 1) + '</span>';}
+        $('legend').innerHTML = lg;
+      }
 
       function lineageSet() {
         if (!sel) return null;
         var s = new Set(), p = sel;
         while (p) {s.add(p); p = p.p;}
-        (function dn(n) {s.add(n); (n.c || []).forEach(dn);})(sel);
+        (function d(n) {s.add(n); (n.c || []).forEach(d);})(sel);
         return s;
       }
 
-      function nodeHTML(n, style, cls, S) {
-        var c = [cls];
+      function nodeHTML(n, style, cls, SS) {
+        var c = [cls], s = S();
         if (n.d === 0) c.push('root');
         if (n.q) c.push('q');
-        if (S && S.has(n)) c.push('on');
+        if (SS && SS.has(n)) c.push('on');
         if (sel === n) c.push('sel');
         if (hits.has(n)) c.push('hit');
         var k = n.c && n.c.length;
         return '<div class="' + c.join(' ') + '" style="' + style + '--h:' + HUES[n.d] + ';--i:' + n.d + '" data-id="' + n.id + '">' +
-          '<button class="nm" data-act="sel" type="button">' + n.n + (n.q ? '<i class="qm" aria-label="नाम स्पष्ट नहीं पढ़ा गया">?</i>' : '') + '</button>' +
-          (k ? '<button class="tg" data-act="tg" type="button" aria-expanded="' + n.open + '" aria-label="' + (n.open ? 'शाखा समेटें' : 'शाखा खोलें') + '">' + (n.open ? '−' : '+' + toDev(n.c.length)) + '</button>' : '') +
+          '<button class="nm" data-act="sel" type="button">' + dn(n) + (n.q ? '<i class="qm" aria-label="' + s.unclear + '">?</i>' : '') + '</button>' +
+          (k ? '<button class="tg" data-act="tg" type="button" aria-expanded="' + n.open + '" aria-label="' + (n.open ? s.shut : s.open) + '">' + (n.open ? '−' : '+' + num(n.c.length)) + '</button>' : '') +
           '</div>';
       }
 
-      function renderTree(S) {
+      function renderTree(SS) {
         var vis = [], row = 0;
         (function walk(n) {
           vis.push(n);
@@ -1028,53 +1137,59 @@
             n.c.forEach(function (k) {
               var x2 = X(k.d), y2 = Y(k.y) + NH / 2, m = (ax + x2) / 2;
               var d = 'M' + ax + ' ' + ay + 'C' + m + ' ' + ay + ' ' + m + ' ' + y2 + ' ' + x2 + ' ' + y2;
-              var hot = S && S.has(n) && S.has(k);
+              var hot = SS && SS.has(n) && SS.has(k);
               if (hot) {on += '<path class="e on" d="' + d + '"/>'; anyOn = true;}
               else off += '<path class="e" d="' + d + '"/>';
               dots += '<circle class="dot' + (hot ? ' on' : '') + '" cx="' + x2 + '" cy="' + y2 + '" r="3.4"/>';
             });
             dots += '<circle class="dot' + (anyOn ? ' on' : '') + '" cx="' + ax + '" cy="' + ay + '" r="4"/>';
           }
-          nodes += nodeHTML(n, 'left:' + X(n.d) + 'px;top:' + Y(n.y) + 'px;width:' + NW + 'px;height:' + NH + 'px;', 'node', S);
+          nodes += nodeHTML(n, 'left:' + X(n.d) + 'px;top:' + Y(n.y) + 'px;width:' + NW + 'px;height:' + NH + 'px;', 'node', SS);
         });
         canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
-        canvas.className = 'canvas' + (S ? ' has-sel' : '') + (first ? ' intro' : '');
+        canvas.className = 'canvas' + (SS ? ' has-sel' : '') + (first ? ' intro' : '');
         canvas.innerHTML = '<svg width="' + W + '" height="' + H + '" aria-hidden="true">' + off + on + dots + '</svg>' + nodes;
         gensbar.style.width = W + 'px';
         var g = '';
-        for (var d = 0; d <= dm; d++) {g += '<span style="left:' + X(d) + 'px;width:' + NW + 'px;--h:' + HUES[d] + '">पीढ़ी ' + toDev(d + 1) + '</span>';}
+        for (var d = 0; d <= dm; d++) {g += '<span style="left:' + X(d) + 'px;width:' + NW + 'px;--h:' + HUES[d] + '">' + S().gen + num(d + 1) + '</span>';}
         gensbar.innerHTML = g;
         first = false;
       }
 
-      function renderList(S) {
+      function renderList(SS) {
         function li(n) {
           var open = n.c && n.open;
-          return '<li class="oi">' + nodeHTML(n, '', 'chip', S) + (open ? '<ul>' + n.c.map(li).join('') + '</ul>' : '') + '</li>';
+          return '<li class="oi">' + nodeHTML(n, '', 'chip', SS) + (open ? '<ul>' + n.c.map(li).join('') + '</ul>' : '') + '</li>';
         }
-        list.className = 'list' + (S ? ' has-sel' : '');
+        list.className = 'list' + (SS ? ' has-sel' : '');
         list.innerHTML = '<ul>' + li(T) + '</ul>';
       }
 
       function updLin() {
+        var s = S();
         if (!sel) {
-          lin.innerHTML = '<span>किसी भी नाम पर टैप करें। उसका पूरा वंश-पथ और आगे की शाखा चमक उठेगी।</span>';
+          lin.innerHTML = '<span>' + s.hint + '</span>';
           return;
         }
         var ch = [], p = sel, desc = 0;
         while (p) {ch.unshift(p); p = p.p;}
         (function f(n) {(n.c || []).forEach(function (x) {desc++; f(x);});})(sel);
-        lin.innerHTML = '<ol>' + ch.map(function (x) {return '<li>' + x.n + '</li>';}).join('') + '</ol>' +
-          '<span class="meta2">पीढ़ी ' + toDev(sel.d + 1) + ' · सीधी संतान ' + toDev(sel.c ? sel.c.length : 0) + ' · कुल वंशज ' + toDev(desc) + '</span>';
+        lin.innerHTML = '<ol>' + ch.map(function (x) {return '<li>' + dn(x) + '</li>';}).join('') + '</ol>' +
+          '<span class="meta2">' + s.meta(num(sel.d + 1), num(sel.c ? sel.c.length : 0), num(desc)) + '</span>';
+      }
+
+      function updHit() {
+        var v = q.value.trim();
+        hitmsg.textContent = v ? (hits.size ? S().found(num(hits.size)) : S().none) : '';
       }
 
       function render(focusKey) {
-        var S = lineageSet();
+        var SS = lineageSet();
         scroller.hidden = view !== 'tree';
         list.hidden = view !== 'list';
         $('vTree').setAttribute('aria-pressed', String(view === 'tree'));
         $('vList').setAttribute('aria-pressed', String(view === 'list'));
-        if (view === 'tree') renderTree(S); else renderList(S);
+        if (view === 'tree') renderTree(SS); else renderList(SS);
         updLin();
         if (focusKey) {
           var el = frame.querySelector('[data-id="' + focusKey[0] + '"] [data-act="' + focusKey[1] + '"]');
@@ -1091,6 +1206,14 @@
         }
       }
 
+      function setLang(l) {
+        lang = l;
+        try {localStorage.setItem('vansh-lang', l);} catch (e) { }
+        applyStatic();
+        render();
+        updHit();
+      }
+
       frame.addEventListener('click', function (e) {
         var b = e.target.closest('button[data-act]');
         if (!b) return;
@@ -1104,13 +1227,18 @@
 
       q.addEventListener('input', function () {
         var s = q.value.trim().normalize('NFC');
+        var sl = s.toLowerCase();
         hits = new Set();
         if (s) {
-          all.forEach(function (n) {if (n.n.normalize('NFC').indexOf(s) > -1) hits.add(n);});
+          /* search matches the Hindi or the English spelling, whichever language is shown */
+          all.forEach(function (n) {
+            var en = (EN[n.n] || '').toLowerCase();
+            if (n.n.normalize('NFC').indexOf(s) > -1 || en.indexOf(sl) > -1) hits.add(n);
+          });
           hits.forEach(function (n) {for (var p = n.p; p; p = p.p) p.open = true;});
         }
         render();
-        hitmsg.textContent = s ? (hits.size ? toDev(hits.size) + ' मिले' : 'कोई नाम नहीं मिला') : '';
+        updHit();
         if (hits.size) reveal(Array.from(hits)[0]);
       });
 
@@ -1118,7 +1246,10 @@
       $('bShut').addEventListener('click', function () {all.forEach(function (n) {n.open = false;}); T.open = true; render();});
       $('vTree').addEventListener('click', function () {view = 'tree'; render();});
       $('vList').addEventListener('click', function () {view = 'list'; render();});
+      $('lHi').addEventListener('click', function () {setLang('hi');});
+      $('lEn').addEventListener('click', function () {setLang('en');});
 
+      applyStatic();
       render();
     })();
   </script>
